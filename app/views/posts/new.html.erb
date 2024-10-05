@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規投稿</title>
+    <link rel="stylesheet" href="new.css">
+</head>
+<body class="new-post-page">
+    <main class="new-post-main">
+        <!-- 新規投稿ページ独自のステータス表示セクション -->
+        
+
+        <!-- 新規投稿セクション -->
+   <section class="new-post-container">
+    <h1 class="new-post-title">新規投稿</h1>
+    <%= form_tag("/posts/create", method: :post, class: "new-post-form") do %>
+        <div class="form-group">
+        <label for="comment">コメントを入力してください:</label>
+    <% if @post.errors[:comment].present? %>
+          <div class="form-error">
+            <%= "Contentは140文字以内で入力してください。" %>
+          </div>
+    <% end %>
+        <textarea id="comment" name="post[comment]" rows="6" placeholder="ここにコメントを入力..." required><%= params.dig(:post, :comment) %></textarea>
+        </div>
+        <div class="form-buttons">
+        <button type="submit" class="submit-btn">投稿</button>
+        <button type="reset" class="reset-btn">リセット</button>
+        </div>
+    <% end %>
+ </section>
+
+
+    </main>
+</body>
+</html>
+ 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drug Quest</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+
+
+  <body>
+    <header>
+    <div class="header-content">
+          <% if @current_user %>
+            <%= link_to("Drug Quest", "/games/game_top", class: "logo") %>
+          <% else %>
+            <%= link_to("Drug Quest", "/", class: "logo") %>
+          <% end %>
+        <nav>
+            <% if @current_user %>
+                <a href="/posts/index">コメントを見る</a>
+                <a href="/posts/new">コメント投稿</a>
+                <a><%= link_to(@current_user.name, "/users/#{@current_user.id}") %></a>
+                <%= form_with url: "/users/logout", method: :post, local: true, class: "logout-form" do %>
+                    <button type="submit" class="logout-link">ログアウト</button>
+                <% end %>
+            <% else %>
+                <a href="/about">Drug Questについて</a>
+                <a href="/how_to_play">Drug Questの遊び方</a>
+            <% end %>
+        </nav>
+    </div>
+</header>
+
+    
+<% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice]%>
+  </div>
+<% end %>
+
+
+  <%= yield %>
+
+    <footer>
+        <p>&copy; 2024 Drug Quest. All rights reserved.</p>
+    </footer>
+  </body>
+
+
+
+
+</html>
+ 

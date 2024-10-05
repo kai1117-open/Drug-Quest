@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規会員登録</title>
+    <link rel="stylesheet" href="users.css">
+    <%= csrf_meta_tags %> <!-- CSRFトークンのメタタグを追加 -->
+</head>
+<body class="user-page">
+    <main class="user-main">
+        <h3 class="user-up">会員情報編集</h3>
+        <div class="user-container">
+
+            <% @user.errors.full_messages.each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
+            <% end %>
+            
+            <%= form_with url: "/users/#{@user.id}/update", local: true, class: 'registration-form', multipart: true do |form| %>
+                <label for="name">名前</label>
+                <%= form.text_field :name, id: 'name', required: true, value: @user.name %>
+
+                <label for="email">メールアドレス</label>
+                <%= form.email_field :email, id: 'email', required: true, value: @user.email %>
+
+                <label for="password">パスワード</label> <!-- 9月27日修正実施 -->
+                <%= form.password_field :password, id: 'password', required: true %> <!-- 9月27日修正実施 -->
+
+                <label for="password_confirmation">パスワード確認</label> <!-- 9月27日修正実施 -->
+                <%= form.password_field :password_confirmation, id: 'password_confirmation', required: true %> <!-- 9月27日修正実施 -->
+
+                <p>画像</p>
+                <%= form.file_field :image %> <!-- 画像アップロード用フィールド -->
+
+                <button type="submit">編集</button>
+            <% end %>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,51 @@
+.game-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px 0;
+}
+
+.game-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45%; /* 横並びの2つが画面幅の45%ずつを占めるように設定 */
+    height: 200px; /* 各リンクの高さを固定 */
+    border: 2px solid white;
+    padding: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #000;
+}
+
+.game-link img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.game-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+}
+
+/* 隙間の調整 */
+.link-row a {
+    margin: 0 10px; /* 左右の隙間を少しだけ設定 */
+}
+
+.game-title {
+    text-align: center; /* テキストを中央に配置 */
+    margin: 20px 0;    /* 上下のマージンを追加 */
+  }

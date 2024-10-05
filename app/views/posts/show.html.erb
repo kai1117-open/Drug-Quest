@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投稿詳細</title>
+    <link rel="stylesheet" href="show.css">
+</head>
+<body class="show-page">
+    <main class="show-main">
+        <section class="comment-detail-container">
+            <div class="user-left">
+                <% if @user.present? %>
+                   <img src="<%= "/user_images/#{@user.image_name}" %>">
+                <% end %>
+            </div>
+            <h1 class="comment-detail-title">投稿詳細</h1>
+            <div class="comment-detail-card">
+                <p class="comment-detail-text"><%= @post.comment %></p>
+                <% if @user.present? %>
+                <p class="comment-author"><%= link_to(@user.name, "/users/#{@user.id}", class: "author-link") %></p>
+                <% end %>
+                <p class="comment-created-at">投稿日時:<%= @post.created_at %></p>
+            </div>
+
+            <!-- ナビゲーションボタンの配置を調整 -->
+            <div class="comment-navigation">
+                <div class="left-navigation">
+                    <p class="comment-index">
+                        <%= link_to "一覧に戻る", "/posts/index", class: "nav-link" %> <!-- 下線を消すためのクラス -->
+                    </p>
+                </div>
+
+                <div class="like-point">
+                    <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+                        <%= button_to(image_tag('heart.png', class: 'heart-icon'), destroy_like_path(post_id: @post.id), method: :delete, class: "like-btn", data: { confirm: "本当にいいねを取り消しますか？" }) %>
+                    <% else %>
+                        <%= button_to(image_tag('heart-empty.png', class: 'heart-icon'), create_like_path(post_id: @post.id), method: :post, class: "like-btn") %>
+                    <% end %>
+                </div>
+
+                <p class="likes-count">いいね数：<%= @likes_count %></p>
+
+                <div class="right-navigation">
+                    <p class="comment-edit">
+                    <% if @post.user_id == @current_user.id %>
+                        <%= link_to "編集", "/posts/#{@post.id}/edit", class: "edit-link" %>
+                    <% end %>
+                    </p>
+                </div>
+            </div>
+
+            <!-- 削除ボタンをここに追加 -->
+            <% if @post.user_id == @current_user.id %>
+                <div class="delete-button-container">
+                    <%= form_with(model: @post, url: "/posts/#{@post.id}", method: :delete, local: true) do |form| %>
+                        <%= form.submit "削除", class: "delete-btn", data: { confirm: "本当に削除しますか？" } %>
+                    <% end %>
+                </div>
+            <% end %>
+        </section>
+    </main>
+</body>
+</html>

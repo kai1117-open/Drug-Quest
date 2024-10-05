@@ -1,0 +1,78 @@
+/* 編集ページの全体設定 */
+.edit-page {
+    font-family: 'Courier New', monospace;
+    
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ビューポートの高さを100%に設定 */
+    width: 100%;
+    height: auto;
+min-height: 100vh;
+}
+
+/* ヘッダーとフッターの設定 */
+
+/* メインコンテンツの設定 */
+.edit-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+/* 編集内容セクションの設定 */
+.edit-content {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border: 2px solid white; /* 白い枠線 */
+    margin-top: 100px;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+/* 編集内容項目の設定 */
+.edit-content-item {
+    margin-bottom: 20px;
+}
+
+.edit-content p {
+    font-size: 1.2em;
+    margin: 0;
+    color: #f5f5f5;
+}
+
+.edit-content .edit-post-time {
+    font-size: 1em;
+    color: #cfcfcf;
+    margin-top: 10px;
+}
+
+.edit-content .edit-post-menus {
+    margin-top: 20px;
+}
+
+.edit-content .edit-post-menus a {
+    color: #00bfff; /* 編集リンクの色 */
+    text-decoration: none; /* 下線を消す */
+    font-weight: bold;
+}
+
+.edit-content{
+    margin-bottom: 50px; /* 下のセクションとの間隔 */
+}
+
+
+.edit-actions a{
+    color: #f5f5f5; /* 文字色を白に設定 */
+    text-decoration: none; /* 下線を消す */
+    font-family: 'Courier New', monospace; /* フォントを周りに合わせる */
+    transition: background-color 0.3s;
+}
+ 

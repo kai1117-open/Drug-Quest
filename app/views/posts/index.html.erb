@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ステータスとコメント一覧</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="index-page">
+    <main class="index-main">
+
+
+
+
+
+        <section class="comments-container">
+
+            <h1 class="comments-title">コメント一覧</h1>
+          <% @posts.each do |post|%>
+            <div class="user-comment-card">
+            <div class="user-comment-header">
+              <div class="user-left">
+
+                <% if post.user.present? %>
+                  <img src="<%= "/user_images/#{post.user.image_name}" %>" >
+                <% end %>
+              </div>
+              <p class="users-text-name">
+                <%= link_to(post.user.name, "/users/#{post.user.id}") if post.user.present? %>
+              </p>
+            </div>
+              <p class="comment-text">
+                <%= link_to(post.comment, "/posts/#{post.id}") %>
+              </p>
+              
+            </div>
+          <%end%>
+        </section>
+    </main>
+</body>
+</html>
+ 

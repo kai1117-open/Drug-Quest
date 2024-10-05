@@ -1,0 +1,174 @@
+body.new-post-page {
+    font-family: 'Courier New', monospace;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* フッターを画面下に固定 */
+    height: auto;
+}
+
+/* ヘッダーの高さ分だけメインコンテンツを下げる */
+.new-post-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    padding-top: 80px; /* ヘッダーの高さに応じた調整 */
+    box-sizing: border-box;
+}
+
+/* 新規投稿ページ独自のステータスカードのスタイル */
+.new-post-status-container {
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    /*box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);*/
+}
+
+.new-post-status-title {
+    color: #00bfff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+}
+
+.new-post-status-card {
+    text-align: left;
+}
+
+.new-post-status-name {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.new-post-status-detail {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+/* 新規投稿のコンテナ */
+.new-post-container {
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    /*box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);*/
+}
+
+/* タイトルのスタイル */
+.new-post-title {
+    color: #00bfff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+}
+
+/* フォームのスタイル */
+.new-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* フォームグループ */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ラベルのスタイル */
+.form-group label {
+    color: #f5f5f5;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* テキストエリア */
+textarea {
+    background-color: #2c2c2c;
+    color: #f5f5f5;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* テキストエリアのフォーカス時 */
+textarea:focus {
+    border-color: #00bfff;
+    outline: none;
+}
+
+/* ボタンのスタイル */
+.new-post-form .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.submit-btn {
+    background-color: #00bfff;
+    color: white;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+.reset-btn {
+    background-color: #555;
+    color: white;
+}
+
+/* ボタンのホバー時 */
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.submit-btn:hover {
+    background-color: #007bff;
+}
+
+.reset-btn:hover {
+    background-color: #333;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: gray;
+    color: white;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    position: relative;
+}
+}

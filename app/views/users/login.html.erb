@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン</title>
+    <%= csp_meta_tag %>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-page">
+    <main class="login-main">
+        <div class="login-container">
+            <h1 class="login-title">Drug Quest<br>ログイン</h1>
+              <%  if @error_message %>
+               <div class = "form_error">
+                <%= @error_message %>
+               </div>
+              <% end %>
+            <%= form_tag("/users/login", method: :post, class: "login-form") do %>
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="email" name="email" required value="<%= @email %>">
+
+                <label for="password">パスワード:</label>
+                <input type="password" id="password" name="password" required value="<%= @password %>">
+
+                <button type="submit">ログイン</button>
+            <% end %>
+        </div>
+    </main>
+</body>
+</html>

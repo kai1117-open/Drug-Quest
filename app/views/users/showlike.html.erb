@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー詳細</title>
+    <link rel="stylesheet" href="show.css">
+</head>
+<body class="users-show-page">
+    <main class="users-show-main">
+        <section class="users-container">
+            <h1 class="users-title">ユーザー詳細</h1>
+            <div class="user_img">
+                <img src="<%= @user&.image_name.present? ? "/user_images/#{@user.image_name}" : '/default_image.png' %>" class="user-image">
+            </div>
+            <% if @user.present? %> <!-- 9月27日10時34分修正実施 -->
+                <div class="users-card">
+                    <p class="users-text"><%= @user.name.present? ? @user.name : '名前が未設定です' %></p>
+                    <p class="users-text"><%= @user.email.present? ? @user.email : 'メールアドレスが未設定です' %></p>
+                    <p class="status-detail">レベル: <%= @user_level %>/1000</p>
+
+                    <p class="status-detail">HP: <%= @claim_score %>/1000</p>
+                    <p class="status-detail">MP: <%= @replenishing_score %>/1000</p>
+                    <p class="status-detail">攻撃力: <%= @order_score %>/1000</p>
+                    <p class="status-detail">防御力: <%= @cashier_score %>/1000</p>
+                    <p class="users-author"><%= "id 「#{@user.id}」" %></p>
+                </div>
+            <% else %>
+                <p>ユーザー情報が見つかりません。</p>
+            <% end %>
+            <p class="users-index">
+                <%= link_to "一覧に戻る", "/users/index", class: "action-link" %>
+            </p>
+            <% if @user.present? && @user.id == @current_user.id %>
+                <p class="users-edit">
+                    <%= link_to "編集", "/users/#{@user.id}/edit", class: "action-link" %>
+                </p>
+            <% end %>
+        </section>
+
+
+
+        <section class="liked-posts">
+        <div class = "index-to-likes-box">
+            <p>
+                <%= link_to "投稿一覧", "/users/#{@user.id}", class: "index-to-likes" %>
+            </p>
+            <p>
+                <%= link_to "「いいね！」した投稿", "/users/#{@user.id}/like", class: "index-to-likes"%>
+            </p>
+        </div>
+
+
+            <h2 class="liked-posts-title">ユーザが「いいね！」した投稿</h2>
+            <% if @liked_posts&.any? %>
+                <% @liked_posts.each do |post| %>
+                    <div class="user-comment-card"> <!-- 9月27日10時34分修正実施 -->
+                      <div class="user-comment-header">
+                        <div class="user-left">
+                            <img src="<%= "/user_images/#{post.user.image_name}" %>" class="user-thumb">
+                        </div>
+                      
+                        <p class="users-text-name">
+                            <%= link_to(post.user.name, "/users/#{post.user.id}", class: "user-link") %>
+                        </p>
+                       </div>
+                        <p class="comment-text">
+                            <%= link_to(post.comment, "/posts/#{post.id}", class: "post-link") %>
+                        </p>
+
+                    </div>
+                <% end %>
+            <% else %>
+                <p>「いいね！」した投稿はありません。</p>
+            <% end %>
+        </section>
+    </main>
+</body>

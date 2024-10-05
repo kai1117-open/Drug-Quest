@@ -1,0 +1,202 @@
+body.show-page { 
+    font-family: 'Courier New', monospace;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+min-height: 100vh;
+}
+
+.show-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    flex: 1;
+}
+
+.comment-detail-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border: 2px solid #ffffff;
+}
+
+/* タイトルのスタイル */
+.comment-detail-title {
+    font-size: 2em;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 投稿内容のスタイル */
+.comment-detail-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+}
+
+/* リンクのスタイル */
+.author-link {
+    text-decoration: none; /* 下線を消す */
+    color: #007bff; /* リンクの色 */
+}
+
+/* 投稿内容のスタイル */
+.comment-detail-text {
+    font-size: 1.2em;
+    color: #f5f5f5;
+}
+
+.comment-author,
+.comment-created-at {
+    font-size: 0.9em;
+    color: #bbbbbb;
+    text-align: right;
+}
+
+/* ナビゲーションボタンのスタイル */
+.comment-navigation {
+    display: flex;
+    justify-content: flex-start; /* 左寄せに変更 */
+    align-items: center; /* 垂直方向に中央揃え */
+    margin-top: 20px;
+}
+
+/* ナビゲーションリンクのスタイル */
+.nav-link,
+.edit-link {
+    color: #f5f5f5;
+    text-decoration: none; /* 下線を消す */
+    font-family: 'Courier New', monospace;
+    padding: 10px 20px; /* ボタンの内側の余白 */
+    border-radius: 5px; /* 角を丸くする */
+}
+
+/* いいねボタンのスタイル */
+.like-btn {
+    background-color: transparent; /* 背景を透明に */
+    border: none; /* ボーダーを消す */
+    cursor: pointer; /* カーソルをポインターに */
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+/* ハートアイコンのサイズ */
+.heart-icon {
+    width: 30px; /* アイコンの幅 */
+    height: 30px; /* アイコンの高さ */
+    margin-left: 10px; /* いいねボタンとの間隔を調整 */
+}
+
+
+/* 削除ボタンコンテナのスタイル */
+.delete-button-container {
+    display: flex;
+    justify-content: flex-end; /* 右寄せ */
+    margin-top: 20px; /* 上部との間隔 */
+}
+
+/* 削除ボタンのスタイル */
+.delete-btn {
+    background-color: #ff0000; /* 削除の背景色 */
+    color: #ffffff; /* 削除の文字色 */
+    border: none; /* ボーダーを消す */
+    padding: 10px 20px; /* ボタンの内側の余白 */
+    border-radius: 5px; /* 角を丸くする */
+}
+
+/* ホバー時のアニメーション */
+.nav-link:hover,
+.edit-link:hover,
+.delete-btn:hover {
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.user-left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    object-fit: cover;
+}
+
+.user-left {
+    float: left;
+    width: 10%;
+}
+/* ナビゲーションリンクのスタイル */
+.nav-link,
+.edit-link {
+    color: #f5f5f5; /* 文字色 */
+    text-decoration: none; /* 下線を消す */
+    font-family: 'Courier New', monospace;
+    padding: 10px 20px; /* ボタンの内側の余白 */
+    border-radius: 5px; /* 角を丸くする */
+    background-color: #007bff; /* 背景色を青に設定 */
+    transition: background-color 0.3s; /* ホバー時のスムーズな変化 */
+}
+
+/* ホバー時のスタイル */
+.nav-link:hover,
+.edit-link:hover {
+    background-color: #0056b3; /* ホバー時に少し濃い青に変更 */
+}
+
+/* 削除ボタンのスタイル */
+.delete-btn {
+    background-color: #ff0000; /* 削除の背景色 */
+    color: #ffffff; /* 削除の文字色 */
+    border: none; /* ボーダーを消す */
+    padding: 10px 20px; /* ボタンの内側の余白 */
+    border-radius: 5px; /* 角を丸くする */
+}
+
+/* ホバー時のアニメーション */
+.nav-link:hover,
+.edit-link:hover,
+.delete-btn:hover {
+    animation: blink 1s step-start infinite;
+}
+
+/* ユーザー画像のスタイル */
+.user-left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    object-fit: cover;
+}
+
+.user-left {
+    float: left;
+    width: 10%;
+}
+
+.likes-count{
+    padding-left: 10px;
+    padding-right: 5px;
+}

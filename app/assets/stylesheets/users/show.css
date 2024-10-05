@@ -1,0 +1,162 @@
+body.users-show-page {
+    font-family: 'Courier New', monospace;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.users-show-main {
+    display: flex;
+    flex-direction: column; /* 縦並びに変更 */
+    justify-content: flex-start; /* 上から配置 */
+    width: 100%;
+    flex: 1;
+
+}
+
+.users-container,
+.user-posts,
+.liked-posts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px; /* 横幅を600pxに統一 */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border: 2px solid #ffffff;
+    margin-bottom: 20px; /* セクション間の隙間を追加 */
+    margin-left: auto; /* 左マージンを自動計算 */
+    margin-right: auto;
+}
+
+/* タイトルのスタイル */
+.users-title,
+.posts-title,
+.liked-posts-title {
+    font-size: 2em;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ユーザー情報のスタイル */
+.users-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+}
+
+.users-text {
+    font-size: 1.2em;
+    color: #f5f5f5;
+}
+
+/* IDのスタイル */
+.users-author {
+    font-size: 0.9em;
+    color: #bbbbbb;
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* 編集リンクのスタイル */
+.users-index,
+.users-edit {
+    margin-top: 20px;
+}
+
+.action-link {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    background-color: rgba(0, 123, 255, 0.8); /* 配色を設定 */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* 編集リンクを右寄せに */
+.users-edit {
+    text-align: right;
+}
+
+/* ホバー時のスタイル（オプション） */
+.action-link:hover {
+    animation: blink 1s step-start infinite;
+}
+
+.user_img img {
+    width: 150px; /* 画像サイズを固定 */
+    height: auto; /* アスペクト比を保持 */
+    border-radius: 50%; /* 角を丸く */
+    margin: 20px 0 10px;
+    object-fit: cover;
+}
+
+.user-left {
+    display: flex;
+    align-items: center; /* ユーザー画像を中央に揃える */
+}
+
+.user-thumb {
+    width: 50px; /* ユーザー画像のサイズ */
+    height: 50px; /* ユーザー画像のサイズ */
+    border-radius: 50%; /* 角を丸く */
+    box-shadow: 0 2px 6px #c1ced7;
+    margin-right: 10px; /* 画像と名前の間に隙間を追加 */
+}
+
+.comment-card {
+    display: flex;
+    align-items: center; /* アイテムを中央揃え */
+    margin-bottom: 15px; /* 各投稿間の隙間を追加 */
+}
+
+.comment-text {
+    margin-left: 10px; /* 投稿コメントとの間に隙間を追加 */
+}
+
+.user-link, .post-link {
+    color: #f5f5f5;
+    text-decoration: none; /* リンクの下線を消す */
+}
+
+.user-link:hover,
+.post-link:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+.index-to-likes-box {
+    display: flex;
+}
+
+
+
+
+
+.index-to-likes {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    background-color: rgba(177, 184, 190, 0.8); /* 配色を設定 */
+    padding: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+
+}
+
+.index-to-likes:hover {
+    animation: blink 1s step-start infinite;
+}

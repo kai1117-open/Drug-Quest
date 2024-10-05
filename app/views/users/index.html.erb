@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー一覧</title>
+    <link rel="stylesheet" href="users_index.css">
+</head>
+<body class="users_index-page">
+    <main class="users_index-main">
+
+        <section class="users-container">
+
+            <h1 class="users-title">従業員一覧</h1>
+          <% @users.each do |user|%>
+            <div class="users-card">
+            <div class="user-left">
+                <img src="<%= "/user_images/#{user.image_name}" %>">
+            </div>
+                <p class="users-text">
+                <%=link_to(user.name,"/users/#{user.id}")%>
+                </p>
+            </div>
+          <%end%>
+        </section>
+    </main>
+
+
+
+</body>
+</html>
+ 

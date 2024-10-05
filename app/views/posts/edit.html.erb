@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投稿編集</title>
+  <link rel="stylesheet" href="edit.css">
+</head>
+<body>
+  <div class="edit-page">
+    <%= form_tag("/posts/#{@post.id}", method: :patch) do %>  <!-- PATCH メソッドを指定 -->
+      <div class="edit-content">
+        <div class="edit-item">
+          <p class="edit-comment">
+            <textarea name="post[comment]"><%= @post.comment %></textarea>
+          </p>
+          <div class="edit-time">
+            <%= @post.created_at %>
+          </div>
+          <div class="edit-actions">
+            <%= submit_tag "更新" %>  <!-- 更新ボタンを追加 -->
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
+ 
