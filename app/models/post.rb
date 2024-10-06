@@ -6,6 +6,9 @@ class Post < ApplicationRecord
     return User.find_by(id: self.user_id)
   end
 
+  paginates_per 5
+
+
   belongs_to :user
   has_many :likes
 end

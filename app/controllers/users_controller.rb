@@ -38,39 +38,55 @@ class UsersController < ApplicationController
   end
 
   def show
-    
-    @user = User.find_by(id: params[:id])
-    @liked_posts = @user.likes.map(&:post)
-    if @user.nil?
-      flash[:alert] = "ユーザーが見つかりません"
-      redirect_to("/users/index")
-    end
-    
-
- # 各スコアがnilかどうかを確認
- if @user.score.cashier_score.nil? || 
-  @user.score.claim_score.nil? || 
-  @user.score.order_score.nil? || 
-  @user.score.replenishing_score.nil?
- @user_level = 1
-else
- @user_level = 1024 - (@user.score.cashier_score + @user.score.claim_score + @user.score.order_score + @user.score.replenishing_score)
-end
-
-@cashier_score = @user.score.cashier_score.nil? ? "レジ打ちをしよう" : (333 - @user.score.cashier_score) * 3
-@claim_score = @user.score.claim_score.nil? ? "クレーム対応をしよう" : (333 - @user.score.claim_score) * 3
-@order_score = @user.score.order_score.nil? ? "発注をしよう" : (333 - @user.score.order_score) * 3
-@replenishing_score = @user.score.replenishing_score.nil? ? "補充をしよう" : (333 - @user.score.replenishing_score) * 3
+    set_user_and_likes
+    calculate_user_scores
   end
 
   def showlike
+    set_user_and_likes
+    calculate_user_scores
+  end
+
+  private
+
+  def set_user_and_likes
     @user = User.find_by(id: params[:id])
-    @liked_posts = @user.likes.map(&:post)
     if @user.nil?
       flash[:alert] = "ユーザーが見つかりません"
-      redirect_to("/users/index")
+      redirect_to("/users/index") and return
     end
+    @liked_posts = @user.likes.map(&:post)
   end
+
+  def calculate_user_scores
+    if @user.score.nil? ||
+       @user.score.cashier_score.nil? ||
+       @user.score.claim_score.nil? ||
+       @user.score.order_score.nil? ||
+       @user.score.replenishing_score.nil?
+      @user_level = 1
+    else
+      @user_level = 1024 - (
+        @user.score.cashier_score + 
+        @user.score.claim_score + 
+        @user.score.order_score + 
+        @user.score.replenishing_score
+      )
+    end
+
+    # cashier_scoreの処理
+    @cashier_score = @user.score.nil? || @user.score.cashier_score.nil? ? 1 : (333 - @user.score.cashier_score) * 3
+
+    # claim_scoreの処理
+    @claim_score = @user.score.nil? || @user.score.claim_score.nil? ? 1 : (333 - @user.score.claim_score) * 3
+
+    # order_scoreの処理
+    @order_score = @user.score.nil? || @user.score.order_score.nil? ? 1 : (333 - @user.score.order_score) * 3
+
+    # replenishing_scoreの処理
+    @replenishing_score = @user.score.nil? || @user.score.replenishing_score.nil? ? 1 : (333 - @user.score.replenishing_score) * 3
+  end
+
 
 
   def create
