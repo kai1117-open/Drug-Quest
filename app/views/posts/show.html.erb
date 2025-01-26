@@ -16,6 +16,7 @@
             </div>
             <h1 class="comment-detail-title">投稿詳細</h1>
             <div class="comment-detail-card">
+            <% if @post.present? %>
                 <p class="comment-detail-text"><%= @post.comment %></p>
                 <% if @user.present? %>
                 <p class="comment-author"><%= link_to(@user.name, "/users/#{@user.id}", class: "author-link") %></p>
@@ -58,6 +59,9 @@
                     <% end %>
                 </div>
             <% end %>
+                <% else %>
+                <p>投稿がありません</p>
+                <% end %>
         </section>
     </main>
 </body>

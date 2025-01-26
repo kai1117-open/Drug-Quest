@@ -16,7 +16,7 @@
                     <%= message %>
                 </div>
             <% end %>
-            <%= form_with url: '/users/create', method: :post, local: true, class: 'registration-form' do |form| %>
+            <%= form_with model: @user, url: users_path, method: :post, local: true, class: 'registration-form' do |form| %>
                 <label for="name">名前</label>
                 <%= form.text_field :name, id: 'name', required: true, value: @user.name %>
 

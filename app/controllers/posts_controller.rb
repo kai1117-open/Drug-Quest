@@ -9,8 +9,12 @@ class PostsController < ApplicationController
   def show
     @id = params[:id]
     @post = Post.find_by(id: params[:id])
+if @post
     @user = @post.user
+end
+if @likes_count
     @likes_count = Like.where(post_id: @post.id).count
+end
   end
 
   def new

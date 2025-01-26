@@ -5,7 +5,6 @@ class CreateScores < ActiveRecord::Migration[7.0]
       t.integer :claim_score
       t.integer :order_score
       t.integer :replenishing_score
-      t.integer :user_id
       t.references :user, null: false, foreign_key: true
       t.timestamps
     end
