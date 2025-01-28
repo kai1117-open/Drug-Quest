@@ -1,24 +1,33 @@
-# README
+# Drug-Quest
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ
+ドラッグストアで起こりうるトラブルや課題を扱うクイズに回答し、回答時間の速さで自分のレベルが可視化されるサイト
 
-* Ruby version
+### テーマを選んだ理由
+前職に関連するサイトを作成したいと考えた結果、部下や後輩に教えていた内容をクイズ形式にすれば、
+楽しく、学べると思い作成しました。
 
-* System dependencies
+### ターゲットユーザ
+- ドラッグストアで働こうと思う人
+- ドラッグストアに興味がある人
 
-* Configuration
 
-* Database creation
+### 主な利用シーン
+- ドラッグストアに関する情報を得たいと思った時
 
-* Database initialization
+---
 
-* How to run the test suite
+## 設計書
 
-* Services (job queues, cache servers, search engines, etc.)
+---
 
-* Deployment instructions
+## 開発環境
+- **OS**: Amazon Linux 2
+- **言語**: HTML, CSS, JavaScript, Ruby, SQL
+- **フレームワーク**: Ruby on Rails
+- **JSライブラリ**: jQuery
+- **IDE**: Visual Studio Code
 
-* ...
+
