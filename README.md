@@ -31,3 +31,20 @@
 - **IDE**: Visual Studio Code
 
 
+## クローン後から立ち上げまで
+```
+./setup.sh
+```
+上記のコマンドで
+```
+$ bundle install
+$ yarn install
+$ rails db:migrate
+$ rails db:seed
+```
+これらがまとめて完了します。
+「All tasks completed!」と表示されれば
+```
+rails s
+```
+使用可能です
